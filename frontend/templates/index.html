@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Engine</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="search-container">
+        <form method="get" action="/search">
+            <input type="text" name="q" placeholder="Search..." value="{{ query }}">
+            <button type="submit">Search</button>
+        </form>
+        {% if results %}
+        <ul class="results">
+            {% for result in results %}
+            <li>{{ result.title }} (Score: {{ result.score }})</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
